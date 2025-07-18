@@ -1,7 +1,7 @@
 import streamlit as st
-from utils import FileHandling, TextHandling
+from utils import DataHandling, FileHandling, TextHandling
 
-TOPICS = FileHandling.load_data_from_json("data/topics_keywords.json")
+TOPICS = DataHandling.load_local_topics_data("data/topics_keywords")
 
 def draw_analysis_result(analysis_result: dict):
     st.markdown("<h3 style='text-align: center;'>Analysis Result</h3>", unsafe_allow_html=True)
