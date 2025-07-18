@@ -7,7 +7,7 @@ from a given directory into a structured dictionary.
 Features:
     - Automatically detects all `.json` files in the specified folder.
     - Uses the FileHandling module to read each JSON file.
-    - Returns a dictionary where each key is the file name and the value is the parsed content.
+    - Returns a dictionary where each key is the filename without extension and the value is the parsed content.
 
 Requirements:
     - JSON files must be valid and located in the given folder.
@@ -23,7 +23,7 @@ from .FileHandling import FileHandling
 
 class DataHandling:
     """
-    A utility class for handling the loading of local topic JSON files.
+    A utility class for loading local topic-related JSON files.
     """
 
     @staticmethod
@@ -36,11 +36,11 @@ class DataHandling:
 
         Returns:
             Dict[str, Dict[str, Any]]: A dictionary where:
-                - keys are filenames (including the '.json' extension)
-                - values are dictionaries representing the JSON content of each file.
+                - Keys are filenames without the '.json' extension.
+                - Values are dictionaries representing the JSON content of each file.
         """
         return {
-            filename: FileHandling.load_data_from_json(os.path.join(folder_path, filename))
+            filename.split('.')[0]: FileHandling.load_data_from_json(os.path.join(folder_path, filename))
             for filename in os.listdir(folder_path)
             if filename.endswith(".json")
         }
