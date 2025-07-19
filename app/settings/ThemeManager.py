@@ -2,7 +2,7 @@ import streamlit as st
 from pathlib import Path
 
 class ThemeManager:
-    THEME_DIR = Path(__file__).resolve().parent.parent / "assets" / "theme"
+    THEME_DIR = Path(__file__).resolve().parent.parent / "assets" / "themes"
 
     @staticmethod
     def apply():
