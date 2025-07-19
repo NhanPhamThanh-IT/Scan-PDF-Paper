@@ -1,5 +1,4 @@
 import streamlit as st
-from settings import ThemeManager
 
 class HelpsView:
     """
@@ -12,8 +11,6 @@ class HelpsView:
         """
         Displays the Helps page with usage instructions and notes.
         """
-        ThemeManager.apply()
-
         st.markdown("""
             This application allows you to analyze PDF documents for specific topics.
             You can upload a PDF file and select a topic to see how well the document matches the topic based on keyword analysis.

@@ -1,36 +1,40 @@
 import streamlit as st
-import os
+from pathlib import Path
 
 class ThemeManager:
-    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+    THEME_DIR = Path(__file__).resolve().parent.parent / "assets" / "theme"
 
     @staticmethod
     def apply():
         current_theme = st.session_state.get("dark_mode", False)
-        ThemeManager._apply_css("common.css")
+        if st.session_state.get("_theme_applied") == current_theme:
+            return
 
-        if current_theme:
-            ThemeManager._apply_dark_mode()
-        else:
-            ThemeManager._apply_light_mode()
+        ThemeManager._apply_css_file("common.css")
+        mode_dir = "dark_mode" if current_theme else "light_mode"
+        ThemeManager._apply_css_folder(mode_dir)
 
-    @staticmethod
-    def _apply_dark_mode():
-        ThemeManager._apply_css("dark_general.css")
-        ThemeManager._apply_css("dark_selectbox.css")
-        ThemeManager._apply_css("dark_file_uploader.css")
+        st.session_state["_theme_applied"] = current_theme
 
     @staticmethod
-    def _apply_light_mode():
-        ThemeManager._apply_css("light_general.css")
-        ThemeManager._apply_css("light_selectbox.css")
-        ThemeManager._apply_css("light_file_uploader.css")
+    def _apply_css_folder(folder_name: str):
+        folder_path = ThemeManager.THEME_DIR / folder_name
+        if not folder_path.exists():
+            st.warning(f"⚠️ Theme folder not found: {folder_name}")
+            return
+
+        for css_file in sorted(folder_path.glob("*.css")):
+            ThemeManager._apply_css(css_file)
 
     @staticmethod
-    def _apply_css(filename):
-        css_path = os.path.join(ThemeManager.BASE_DIR, "..", "assets", "theme", filename)
-        if os.path.exists(css_path):
-            with open(css_path, "r", encoding="utf-8") as f:
-                st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
-        else:
-            st.warning(f"⚠️ CSS file not found: {filename}")
+    def _apply_css_file(file_name: str):
+        ThemeManager._apply_css(ThemeManager.THEME_DIR / file_name)
+
+    @staticmethod
+    def _apply_css(path: Path):
+        if not path.exists():
+            st.warning(f"⚠️ CSS file not found: {path.name}")
+            return
+
+        with path.open("r", encoding="utf-8") as f:
+            st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)

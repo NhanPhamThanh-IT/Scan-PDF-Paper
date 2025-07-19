@@ -17,3 +17,7 @@ div[data-baseweb="popover"] {
 div[data-baseweb="option"]:hover {
   background-color: #e0e0e0 !important;
 }
+
+div[data-testid="stSelectbox"] label {
+  color: black !important;
+}

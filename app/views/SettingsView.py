@@ -1,11 +1,8 @@
 import streamlit as st
-from settings import ThemeManager
 
 class SettingsView:
     @staticmethod
     def render():
-        ThemeManager.apply()
-
         st.markdown("Customize the behavior and appearance of the PDF Topic Analyzer below.")
         st.subheader("Appearance Settings")
 

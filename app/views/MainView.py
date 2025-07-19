@@ -1,6 +1,5 @@
 import streamlit as st
 import os
-from settings import ThemeManager
 from core import FileHandling, TextHandling, DataHandling
 from ui import ResultComponent
 
@@ -10,9 +9,7 @@ class MainView:
     TOPICS = DataHandling.load_local_topics_data(DATA_PATH)
 
     @staticmethod
-    def render():
-        ThemeManager.apply()
-        
+    def render():        
         topic = MainView._render_topic_selector()
         file = MainView._render_file_uploader()
 
