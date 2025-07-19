@@ -1,3 +1,4 @@
-from .ResultView import ResultView
+from .ResultComponent import ResultComponent
+from .TabsComponent import TabsComponent
 
-__all__ = ["ResultView"]
+__all__ = ["ResultComponent", "TabsComponent"]

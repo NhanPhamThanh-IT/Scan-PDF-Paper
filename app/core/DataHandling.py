@@ -21,6 +21,7 @@ import os
 from typing import Any, Dict
 from .FileHandling import FileHandling
 
+
 class DataHandling:
     """
     A utility class for loading local topic-related JSON files.
