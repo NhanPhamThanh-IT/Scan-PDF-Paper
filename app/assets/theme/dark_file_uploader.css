@@ -1,0 +1,19 @@
+section[data-testid="stFileUploaderDropzone"] {
+  background-color: #2c2c2c !important;
+  color: white !important;
+  border: 1px solid #555 !important;
+  border-radius: 8px;
+}
+section[data-testid="stFileUploaderDropzone"] label,
+div[data-testid="stFileUploader"] label {
+  color: white !important;
+}
+section[data-testid="stFileUploaderDropzone"] svg {
+  fill: white !important;
+}
+section[data-testid="stFileUploaderDropzone"] button {
+  background-color: #3a3a3a !important;
+  color: white !important;
+  border: none !important;
+  border-radius: 4px;
+}

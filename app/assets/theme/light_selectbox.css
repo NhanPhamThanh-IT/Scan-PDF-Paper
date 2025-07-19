@@ -1,0 +1,19 @@
+div[data-baseweb="select"] > div {
+  background-color: rgb(240, 242, 246) !important;
+  color: black !important;
+  border-radius: 6px;
+  border: 1px solid transparent;
+}
+
+div[data-baseweb="select"] span {
+  color: black !important;
+}
+
+div[data-baseweb="popover"] {
+  background-color: #f9f9f9 !important;
+  color: black !important;
+}
+
+div[data-baseweb="option"]:hover {
+  background-color: #e0e0e0 !important;
+}
