@@ -3,26 +3,15 @@ import streamlit as st
 class ThemeManager:
     @staticmethod
     def apply():
-        """
-        Apply dark/light theme once per change.
-        """
         current_theme = st.session_state.get("dark_mode", False)
-        last_applied = st.session_state.get("_theme_applied")
-
-        if current_theme != last_applied:
-            ThemeManager._apply_common_styles()
-            if current_theme:
-                ThemeManager._apply_dark_mode()
-            else:
-                ThemeManager._apply_light_mode()
-
-            st.session_state["_theme_applied"] = current_theme
+        ThemeManager._apply_common_styles()
+        if current_theme:
+            ThemeManager._apply_dark_mode()
+        else:
+            ThemeManager._apply_light_mode()
 
     @staticmethod
     def _apply_common_styles():
-        """
-        Apply shared styles regardless of theme.
-        """
         st.markdown("""
             <style>
                 header {visibility: hidden;}
@@ -30,7 +19,8 @@ class ThemeManager:
                 .st-emotion-cache-uf99v8 {display: none;}
                 div .block-container {
                     padding: 0rem !important;
-                    margin: 0rem !important;}
+                    margin: 0rem !important;
+                }
             </style>
         """, unsafe_allow_html=True)
 
@@ -42,7 +32,7 @@ class ThemeManager:
                     background-color: #121212;
                     color: white;
                 }
-                .stMarkdown, .stTextInput, .stButton, .stSelectbox, .stDataFrame {
+                .stMarkdown, .stTextInput, .stButton, .stDataFrame {
                     color: white !important;
                 }
                 .css-1v3fvcr {
@@ -53,6 +43,22 @@ class ThemeManager:
                 }
                 .stHeader, h1, h2, h3, h4, h5, h6 {
                     color: white !important;
+                }
+                div[data-baseweb="select"] > div {
+                    background-color: #2c2c2c !important;
+                    color: white !important;
+                    border: 1px solid #555;
+                    border-radius: 6px;
+                }
+                div[data-baseweb="select"] span {
+                    color: white !important;
+                }
+                div[data-baseweb="popover"] {
+                    background-color: #2c2c2c !important;
+                    color: white !important;
+                }
+                div[data-baseweb="option"]:hover {
+                    background-color: #3a3a3a !important;
                 }
             </style>
         """, unsafe_allow_html=True)
@@ -65,7 +71,7 @@ class ThemeManager:
                     background-color: white;
                     color: black;
                 }
-                .stMarkdown, .stTextInput, .stButton, .stSelectbox, .stDataFrame {
+                .stMarkdown, .stTextInput, .stButton, .stDataFrame {
                     background-color: white !important;
                     color: black !important;
                 }
@@ -77,6 +83,22 @@ class ThemeManager:
                 }
                 h1, h2, h3, h4, h5, h6 {
                     color: black !important;
+                }
+                div[data-baseweb="select"] > div {
+                    background-color: #f0f0f0 !important;
+                    color: black !important;
+                    border-radius: 6px;
+                    border: 1px solid #ccc;
+                }
+                div[data-baseweb="select"] span {
+                    color: black !important;
+                }
+                div[data-baseweb="popover"] {
+                    background-color: #f9f9f9 !important;
+                    color: black !important;
+                }
+                div[data-baseweb="option"]:hover {
+                    background-color: #e0e0e0 !important;
                 }
             </style>
         """, unsafe_allow_html=True)

@@ -19,10 +19,14 @@ class HelpsView:
             You can upload a PDF file and select a topic to see how well the document matches the topic based on keyword analysis.
             
             **Instructions:**
-            1. Select a topic from the dropdown menu.
-            2. Upload a PDF file using the file uploader.
-            3. The application will extract text from the PDF and analyze it against the selected topic.
-            4. Results will be displayed, including total words, keyword count, and match percentage.
-            
+
+            &emsp;&emsp;1. Select a topic from the dropdown menu.
+
+            &emsp;&emsp;2. Upload a PDF file using the file uploader.
+
+            &emsp;&emsp;3. The application will extract text from the PDF and analyze it against the selected topic.
+
+            &emsp;&emsp;4. Results will be displayed, including total words, keyword count, and match percentage.
+
             **Note:** Ensure that the PDF file is clear and contains relevant text for accurate analysis.
         """)
