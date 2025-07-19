@@ -1,1 +1,3 @@
 PyMuPDF
+tinycss2
+pytest
