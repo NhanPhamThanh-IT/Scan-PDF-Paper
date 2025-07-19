@@ -1,5 +1,5 @@
-from .MainView import render_main_view
+from .MainView import MainView
 from .SettingsView import SettingsView
 from .HelpsView import HelpsView
 
-__all__ = ["render_main_view", "SettingsView", "HelpsView"]
+__all__ = ["MainView", "SettingsView", "HelpsView"]

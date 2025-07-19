@@ -8,7 +8,7 @@ sys.path.append(BASE_DIR)
 
 # Local imports
 from ui import TabsComponent
-from views import render_main_view, SettingsView, HelpsView
+from views import MainView, SettingsView, HelpsView
 
 def run_app():
     st.markdown(
@@ -17,9 +17,18 @@ def run_app():
     )
 
     TabsComponent([
-        {"title": "Home", "render_function": render_main_view},
-        {"title": "Settings", "render_function": SettingsView.render},
-        {"title": "Helps", "render_function": HelpsView.render},
+        {
+            "title": "Home",
+            "render_function": MainView.render
+        },
+        {
+            "title": "Settings",
+            "render_function": SettingsView.render
+        },
+        {
+            "title": "Helps",
+            "render_function": HelpsView.render
+        },
     ]).render()
 
 if __name__ == "__main__":

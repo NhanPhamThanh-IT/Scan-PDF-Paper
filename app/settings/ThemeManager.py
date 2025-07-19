@@ -10,12 +10,29 @@ class ThemeManager:
         last_applied = st.session_state.get("_theme_applied")
 
         if current_theme != last_applied:
+            ThemeManager._apply_common_styles()
             if current_theme:
                 ThemeManager._apply_dark_mode()
             else:
                 ThemeManager._apply_light_mode()
 
             st.session_state["_theme_applied"] = current_theme
+
+    @staticmethod
+    def _apply_common_styles():
+        """
+        Apply shared styles regardless of theme.
+        """
+        st.markdown("""
+            <style>
+                header {visibility: hidden;}
+                .streamlit-footer {display: none;}
+                .st-emotion-cache-uf99v8 {display: none;}
+                div .block-container {
+                    padding: 0rem !important;
+                    margin: 0rem !important;}
+            </style>
+        """, unsafe_allow_html=True)
 
     @staticmethod
     def _apply_dark_mode():
