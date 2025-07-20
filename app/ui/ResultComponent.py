@@ -1,18 +1,17 @@
 """
-ResultComponent.py
+UI component for displaying analysis results in a Streamlit application.
 
-This module defines UI components and data structures for rendering analysis results
-in a clean and responsive layout using Streamlit.
+This module defines a `ResultItem` dataclass to represent individual result entries,
+and a `ResultComponent` class to render those entries in a responsive, styled layout
+using Streamlit.
 
-Features:
-    - Defines a ResultItem dataclass to encapsulate individual result entries.
-    - Formats result labels and values for improved readability and clarity.
-    - Renders result items as styled HTML cards displayed in columns.
+Classes:
+    - ResultItem: Encapsulates a single result with formatted display properties.
+    - ResultComponent: Renders a list of result items as HTML-styled cards.
 
 Requirements:
-    - Streamlit must be installed and configured in the environment.
-    - Input data should be a dictionary of key-value pairs, where values are strings,
-      integers, or floats.
+    - Streamlit must be installed.
+    - Input must be a dictionary of key-value pairs (str, int, or float).
 
 Author: Nhan Pham
 Date: 2025-07-18
@@ -26,22 +25,32 @@ from typing import List, Union, Dict
 @dataclass
 class ResultItem:
     """
-    Represents a single analysis result item.
+    Represents a single key-value pair in the analysis results.
 
     Attributes:
-        key (str): The name or identifier of the result.
-        value (Union[str, int, float]): The associated value of the result.
+        key (str): Identifier of the result metric.
+        value (Union[str, int, float]): Value associated with the result.
     """
 
     key: str
     value: Union[str, int, float]
 
+    def __post_init__(self):
+        """
+        Validates that the key is a string.
+
+        Raises:
+            TypeError: If the key is not a string.
+        """
+        if not isinstance(self.key, str):
+            raise TypeError("key must be a string")
+
     @property
     def label(self) -> str:
         """
-        Returns a display-friendly version of the key.
+        Returns a human-friendly version of the key.
 
-        Replaces underscores with spaces and capitalizes words.
+        Replaces underscores with spaces and capitalizes each word.
 
         Returns:
             str: Formatted label.
@@ -53,7 +62,8 @@ class ResultItem:
         """
         Returns a display-friendly version of the value.
 
-        Adds a '%' suffix if the key indicates a percentage or match metric.
+        If the key suggests a percentage (e.g., contains "percent" or "match"),
+        appends a '%' symbol.
 
         Returns:
             str: Formatted value as a string.
@@ -65,26 +75,32 @@ class ResultItem:
 
 class ResultComponent:
     """
-    A component class that renders analysis results using styled Streamlit components.
+    Renders analysis results as styled cards in a Streamlit layout.
 
     Attributes:
-        result_items (List[ResultItem]): Parsed list of result items to be displayed.
+        result_items (List[ResultItem]): Parsed result entries to display.
     """
 
     def __init__(self, analysis_result: Dict[str, Union[str, int, float]]):
         """
-        Initializes the ResultComponent with analysis result data.
+        Initializes the result component with a dictionary of results.
 
         Args:
-            analysis_result (Dict[str, Union[str, int, float]]): Dictionary of analysis results.
+            analysis_result (dict): Key-value pairs representing analysis metrics.
+
+        Raises:
+            TypeError: If input is not a dictionary.
         """
+        if not isinstance(analysis_result, dict):
+            raise TypeError("analysis_result must be a dictionary")
+
         self.result_items: List[ResultItem] = [
             ResultItem(key, value) for key, value in analysis_result.items()
         ]
 
     def render(self) -> None:
         """
-        Renders result items as styled cards in columns within the Streamlit app.
+        Displays all result items as styled cards in Streamlit columns.
         """
         st.markdown("<h3 style='text-align: center;'>Analysis Result</h3>", unsafe_allow_html=True)
         cols = st.columns(len(self.result_items))
@@ -95,14 +111,14 @@ class ResultComponent:
     @staticmethod
     def _styled_card(label: str, value: str) -> str:
         """
-        Generates a styled HTML snippet for a single result card.
+        Builds an HTML snippet for displaying a result card.
 
         Args:
-            label (str): The title or label of the result.
-            value (str): The formatted value to display.
+            label (str): The result's label.
+            value (str): The formatted value.
 
         Returns:
-            str: An HTML block for rendering the result card.
+            str: HTML block for rendering the card.
         """
         return f"""
             <div style='text-align: center; padding: 10px; border: 1px solid #ddd;

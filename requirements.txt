@@ -1,3 +1,4 @@
 PyMuPDF
 tinycss2
 pytest
+pytest-mock
