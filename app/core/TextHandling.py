@@ -10,4 +10,8 @@ class TextHandling:
         keyword_count = sum(text.count(kw.lower()) for kw in keywords)
         match_percent = (keyword_count / total_words) * 100 if total_words > 0 else 0
 
-        return round(match_percent, 3), keyword_count, total_words
+        return {
+            "total_words": total_words,
+            "keyword_count": keyword_count,
+            "match_percent": round(match_percent, 3)
+        }

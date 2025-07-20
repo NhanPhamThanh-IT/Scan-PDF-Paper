@@ -121,8 +121,8 @@ class ResultComponent:
             str: HTML block for rendering the card.
         """
         return f"""
-            <div style='text-align: center; padding: 10px; border: 1px solid #ddd;
-                        border-radius: 10px; background-color: #f9f9f9;'>
+            <div style='text-align: center; padding: 10px;
+                        border-radius: 10px; background-color: rgb(245, 246, 250);'>
                 <div style='font-size: 16px; color: #555;'>{label}</div>
                 <div style='font-size: 22px; font-weight: bold; color: #222;'>{value}</div>
             </div>

@@ -33,4 +33,4 @@ class MainView:
     def _analyze_pdf(uploaded_file, topic):
         text = FileHandling.extract_text_from_pdf(uploaded_file)
         result = TextHandling.calculate_topic_match(text, MainView.TOPICS[topic])
-        return dict(zip(["match_percent", "keyword_count", "total_words"], result))
+        return result
