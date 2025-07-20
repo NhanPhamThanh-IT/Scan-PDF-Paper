@@ -1,5 +1,10 @@
 [theme]
-font="sans serif"
+base = "light"
+primaryColor = "#4A90E2"
+backgroundColor = "#FFFFFF"
+secondaryBackgroundColor = "#F5F6FA"
+textColor = "#262730"
+font = "sans serif"
 
 [server]
 headless = true
