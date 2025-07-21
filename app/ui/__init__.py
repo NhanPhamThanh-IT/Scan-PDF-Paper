@@ -1,4 +1,5 @@
-from .ResultComponent import ResultComponent
+from .PageHeaderComponent import PageHeaderComponent
 from .TabsComponent import TabsComponent
+from .ResultComponent import ResultComponent
 
-__all__ = ["ResultComponent", "TabsComponent"]
+__all__ = ["PageHeaderComponent", "TabsComponent", "ResultComponent"]

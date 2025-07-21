@@ -1,4 +1,8 @@
+streamlit>=1.47.0
 PyMuPDF
 tinycss2
 pytest
 pytest-mock
+sentence-transformers>=2.6.1
+huggingface-hub>=0.21.0
+torch>=2.0.0

@@ -11,3 +11,10 @@ div .block-container {
   padding: 0rem !important;
   margin: 0rem !important;
 }
+div[data-testid="stMainBlockContainer"] {
+  padding: 0rem !important;
+  margin: 0rem !important;
+}
+[data-testid="stBaseButton-minimal"] svg {
+  color: red;
+}

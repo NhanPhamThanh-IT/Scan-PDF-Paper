@@ -1,5 +1,4 @@
-from .DataHandling import DataHandling
-from .FileHandling import FileHandling
-from .TextHandling import TextHandling
+from .AI import TopicClassifier
+from .Utils import DataHandling, FileHandling, TextHandling
 
-__all__ = ['DataHandling', 'FileHandling', 'TextHandling']
+__all__ = ['DataHandling', 'FileHandling', 'TextHandling', 'TopicClassifier']
