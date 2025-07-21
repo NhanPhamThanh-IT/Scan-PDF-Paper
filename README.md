@@ -1,16 +1,16 @@
 <div align="justify">
 
-# 📄 Scan-PDF-Paper
+# <div align="center">📄 Scan-PDF-Paper</div>
 
 <div align="center">
+
+A powerful document analysis tool that extracts text from various document formats (PDF, DOCX, TXT) and performs intelligent topic classification and keyword matching analysis.
 
 [![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/downloads/) [![Streamlit](https://img.shields.io/badge/Streamlit-1.47.0+-red.svg)](https://streamlit.io/) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) [![PyTorch](https://img.shields.io/badge/PyTorch-2.0+-orange.svg)](https://pytorch.org/) [![Transformers](https://img.shields.io/badge/🤗_Transformers-4.0+-green.svg)](https://huggingface.co/transformers/) [![Code Style: Black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black) [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/NhanPhamThanh-IT/Scan-PDF-Paper/graphs/commit-activity)
 
 [![GitHub stars](https://img.shields.io/github/stars/NhanPhamThanh-IT/Scan-PDF-Paper.svg?style=social&label=Star)](https://github.com/NhanPhamThanh-IT/Scan-PDF-Paper) [![GitHub forks](https://img.shields.io/github/forks/NhanPhamThanh-IT/Scan-PDF-Paper.svg?style=social&label=Fork)](https://github.com/NhanPhamThanh-IT/Scan-PDF-Paper/fork)
 
 </div>
-
-A powerful document analysis tool that extracts text from various document formats (PDF, DOCX, TXT) and performs intelligent topic classification and keyword matching analysis.
 
 ## 🌟 Features
 
